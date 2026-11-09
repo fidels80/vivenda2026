@@ -1,0 +1,31 @@
+<?php
+
+namespace app\modules\chart\controllers;
+
+use yii\web\Controller;
+
+/**
+ * Default controller for the `Dintable` module
+ */
+class DefaultController extends Controller
+{
+    /**
+     * Renders the index view for the module
+     * @return string
+     */
+    public function actionIndex()
+    {
+        return $this->render('index');
+    }
+    public function actiondDoform($tab)
+    {
+        return $this->render('form',[ 'tab'=> $tab]);
+    }
+    
+    public function actiondDochart($tab)
+    {
+     echo 'sdadasdasd';
+       // return $this->render('chart',[ 'tab'=> $tab]);
+    }
+    
+}

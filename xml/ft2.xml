@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<p:FatturaElettronica versione="FPA12" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:p="http://ivaservizi.agenziaentrate.gov.it/docs/xsd/fatture/v1.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<FatturaElettronicaHeader>
+		<DatiTrasmissione>
+			<IdTrasmittente>
+				<IdPaese>IT</IdPaese>
+				<IdCodice>00863010245</IdCodice>
+			</IdTrasmittente>
+			<ProgressivoInvio>1281</ProgressivoInvio>
+			<FormatoTrasmissione>FPA12</FormatoTrasmissione>
+			<CodiceDestinatario>123456</CodiceDestinatario>
+		</DatiTrasmissione>
+		<CedentePrestatore>
+			<DatiAnagrafici>
+				<IdFiscaleIVA>
+					<IdPaese>IT</IdPaese>
+					<IdCodice>00863010245</IdCodice>
+				</IdFiscaleIVA>
+				<CodiceFiscale>00863010245</CodiceFiscale>
+				<Anagrafica>
+					<Denominazione>Ditta Dimostrativa</Denominazione>
+				</Anagrafica>
+				<RegimeFiscale>RF01</RegimeFiscale>
+			</DatiAnagrafici>
+			<Sede>
+				<Indirizzo>Via nazionale</Indirizzo>
+				<NumeroCivico>61</NumeroCivico>
+				<CAP>36056</CAP>
+				<Comune>TEZZE SUL BRENTA</Comune>
+				<Provincia>VI</Provincia>
+				<Nazione>IT</Nazione>
+			</Sede>
+		</CedentePrestatore>
+		<CessionarioCommittente>
+			<DatiAnagrafici>
+				<IdFiscaleIVA>
+					<IdPaese>IT</IdPaese>
+					<IdCodice>1234567890</IdCodice>
+				</IdFiscaleIVA>
+				<Anagrafica>
+					<Denominazione>Amm Comunale di BASSANO</Denominazione>
+				</Anagrafica>
+			</DatiAnagrafici>
+			<Sede>
+				<Indirizzo>Via dei Martiri, 77</Indirizzo>
+				<CAP>36061</CAP>
+				<Comune>BASSANO DEL GRAPPA</Comune>
+				<Provincia>VI</Provincia>
+				<Nazione>IT</Nazione>
+			</Sede>
+		</CessionarioCommittente>
+	</FatturaElettronicaHeader>
+	<FatturaElettronicaBody>
+		<DatiGenerali>
+			<DatiGeneraliDocumento>
+				<TipoDocumento>TD01</TipoDocumento>
+				<Divisa>EUR</Divisa>
+				<Data>2019-09-25</Data>
+				<Numero>1/E</Numero>
+				<ImportoTotaleDocumento>16.73</ImportoTotaleDocumento>
+			</DatiGeneraliDocumento>
+		</DatiGenerali>
+		<DatiBeniServizi>
+			<DettaglioLinee>
+				<NumeroLinea>1</NumeroLinea>
+				<CodiceArticolo>
+					<CodiceTipo>ADC</CodiceTipo>
+					<CodiceValore>147</CodiceValore>
+				</CodiceArticolo>
+				<Descrizione>Casse multimediali bis</Descrizione>
+				<Quantita>1.00</Quantita>
+				<UnitaMisura>Numero</UnitaMisura>
+				<PrezzoUnitario>13.71</PrezzoUnitario>
+				<PrezzoTotale>13.71</PrezzoTotale>
+				<AliquotaIVA>22.00</AliquotaIVA>
+			</DettaglioLinee>
+			<DatiRiepilogo>
+				<AliquotaIVA>22.00</AliquotaIVA>
+				<ImponibileImporto>13.71</ImponibileImporto>
+				<Imposta>3.02</Imposta>
+				<EsigibilitaIVA>S</EsigibilitaIVA>
+				<RiferimentoNormativo>IVA 22%</RiferimentoNormativo>
+			</DatiRiepilogo>
+		</DatiBeniServizi>
+		<DatiPagamento>
+			<CondizioniPagamento>TP02</CondizioniPagamento>
+			<DettaglioPagamento>
+				<ModalitaPagamento>MP05</ModalitaPagamento>
+				<DataScadenzaPagamento>2019-10-25</DataScadenzaPagamento>
+				<ImportoPagamento>13.71</ImportoPagamento>
+				<IstitutoFinanziario>CR Di Padova e Rovigo Spa Agenzia di Rosà</IstitutoFinanziario>
+			</DettaglioPagamento>
+		</DatiPagamento>
+	</FatturaElettronicaBody>
+</p:FatturaElettronica>

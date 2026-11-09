@@ -1,0 +1,58 @@
+# phpstorm project files
+.idea
+
+# netbeans project files
+nbproject
+
+# zend studio for eclipse project files
+.buildpath
+.project
+.settings
+
+# windows thumbnail cache
+Thumbs.db
+
+# composer vendor dir
+/vendor
+
+# composer itself is not needed
+composer.phar
+
+# Mac DS_Store Files
+.DS_Store
+
+# phpunit itself is not needed
+phpunit.phar
+# local phpunit config
+/phpunit.xml
+
+tests/_output/*
+tests/_support/_generated
+
+#vagrant folder
+/.vagrant
+
+# backup files
+*.bak
+
+# editor/local folders
+/.history
+/.vscode
+
+# Yii runtime cache
+/runtime
+
+# archivi compressi nella root
+/*.zip
+/*.7z
+/*.rar
+/*.tar
+/*.tar.gz
+
+# copie vecchie del progetto
+/controllers221122
+/old mvc_140922
+/dashboard_vivenda2026
+
+# credenziali DB locali
+/config/db.php

@@ -1,0 +1,63 @@
+--- php_mssql.c.orig	2011-07-28 07:01:04.000000000 -0400
++++ php_mssql.c	2011-10-21 10:57:41.000000000 -0400
+@@ -53,6 +53,7 @@
+ 	ZEND_ARG_INFO(0, username)
+ 	ZEND_ARG_INFO(0, password)
+ 	ZEND_ARG_INFO(0, newlink)
++	ZEND_ARG_INFO(0, appname)
+ ZEND_END_ARG_INFO()
+ 
+ ZEND_BEGIN_ARG_INFO_EX(arginfo_mssql_close, 0, 0, 0)
+@@ -538,15 +539,15 @@
+ */
+ static void php_mssql_do_connect(INTERNAL_FUNCTION_PARAMETERS, int persistent)
+ {
+-	char *host = NULL, *user = NULL, *passwd = NULL;
+-	int host_len = 0, user_len = 0, passwd_len = 0;
++	char *host = NULL, *user = NULL, *passwd = NULL, *appname = NULL;
++	int host_len = 0, user_len = 0, passwd_len = 0, appname_len = 0;
+ 	zend_bool new_link = 0;
+ 	char *hashed_details;
+ 	int hashed_details_length;
+ 	mssql_link mssql, *mssql_ptr;
+ 	char buffer[40];
+ 
+-	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "|sssb", &host, &host_len, &user, &user_len, &passwd, &passwd_len, &new_link) == FAILURE) {
++	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "|sssbs", &host, &host_len, &user, &user_len, &passwd, &passwd_len, &new_link, &appname, &appname_len) == FAILURE) {
+ 		return;
+ 	}
+ 
+@@ -560,6 +561,9 @@
+ 	if(passwd_len>255) {
+ 		passwd[255] = '\0';
+ 	}
++	if(appname_len>255) {
++		appname[255] = '\0';
++	}
+ 
+ 	switch(ZEND_NUM_ARGS())
+ 	{
+@@ -577,6 +581,7 @@
+ 			break;
+ 		case 3:
+ 		case 4:
++		case 5:
+ 			hashed_details_length = spprintf(&hashed_details, 0, "mssql_%s_%s_%s", host, user, passwd);
+ 			break;
+ 	}
+@@ -620,7 +625,15 @@
+ 		}
+ #endif
+ 
++	if (appname) {
++		if (MS_SQL_G(appname)) {
++			STR_FREE(MS_SQL_G(appname));
++		}
++		MS_SQL_G(appname) = estrndup(appname, appname_len);
++	}
++
+ 	DBSETLAPP(mssql.login,MS_SQL_G(appname));
++
+ 	mssql.valid = 1;
+ 
+ #ifndef HAVE_FREETDS
